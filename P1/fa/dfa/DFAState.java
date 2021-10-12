@@ -8,7 +8,13 @@ public class DFAState extends State{
     boolean finalState = false;
     HashMap <Character, DFAState> fa = new HashMap<Character, DFAState>();
 
+    void setTransition(Character C, DFAState nextState){
+        this.fa.put(C, nextState);
+    }
 
+    DFAState getTransition(char current){
+        return this.fa.get(current);
+    }
 
 
     void ChangeFinal(boolean current){
