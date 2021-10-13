@@ -17,7 +17,7 @@ public class DFAState extends State{
     }
 
 
-    void ChangeFinal(boolean current){
+    void setFinal(boolean current){
         finalState = current;
     }
 
@@ -25,7 +25,7 @@ public class DFAState extends State{
         return finalState;
     }
 
-    void ChangeStart(boolean current){
+    void setStart(boolean current){
         startState = current;
     }
 
