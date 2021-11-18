@@ -213,12 +213,10 @@ public class NFA implements NFAInterface {
                     for (NFAState currState : newStates) {
                         if (currState.getTo(currChar) != null) {
                             for (NFAState Estate : currState.getTo(currChar)) {
-                                System.out.println(Estate.getName());
                                 machine.addAll(eClosure(Estate));
                             }
                         }
                     }
-                    System.out.println(machine.toString());
                     while (!DFAStates.containsKey(machine)) {
                         DFAStates.put(machine, machine.toString());
                         stateQueue.add(machine);
