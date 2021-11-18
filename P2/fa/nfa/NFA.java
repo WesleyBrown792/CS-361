@@ -189,6 +189,7 @@ public class NFA implements NFAInterface {
 		// Checks if there is a final state in the newStates
 		boolean finalState = false;
 		for (NFAState currState : newStates) {
+            System.out.println("currState"+currState.getName());
 			if (currState.getFinalState())
 				finalState = true;
 		}
