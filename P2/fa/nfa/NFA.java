@@ -211,7 +211,6 @@ public class NFA implements NFAInterface {
                 for (char currChar : alphabetTracker) {
                     LinkedHashSet<NFAState> machine = new LinkedHashSet<>();
                     for (NFAState currState : newStates) {
-                        System.out.println(currState.getName());
                         if (currState.getTo(currChar) != null) {
                             for (NFAState Estate : currState.getTo(currChar)) {
                                 machine.addAll(eClosure(Estate));
@@ -229,6 +228,7 @@ public class NFA implements NFAInterface {
                         if (finalState) 
                             dfa.addFinalState(DFAStates.get(machine));
                         if (!finalState) 
+                            System.out.println(DFAStates.get(machine).getName());
                             dfa.addState(DFAStates.get(machine));
                     }
                     dfa.addTransition(newStates.toString(), currChar, DFAStates.get(machine));
