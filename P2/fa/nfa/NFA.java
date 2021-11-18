@@ -217,6 +217,7 @@ public class NFA implements NFAInterface {
                             }
                         }
                     }
+                    System.out.println(machine.toString());
                     while (!DFAStates.containsKey(machine)) {
                         DFAStates.put(machine, machine.toString());
                         stateQueue.add(machine);
@@ -261,9 +262,6 @@ public class NFA implements NFAInterface {
         Set<NFAState> seenStates = new LinkedHashSet<NFAState>();
 
         eClosureWalk(s,seenStates);
-        for(NFAState state : seenStates){
-            System.out.println(state.getName());
-        }
         return seenStates;
     }
 
