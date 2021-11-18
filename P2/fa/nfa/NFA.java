@@ -218,6 +218,7 @@ public class NFA implements NFAInterface {
                         }
                     }
                     while (!DFAStates.containsKey(machine)) {
+                        System.out.println(machine.getName());
                         DFAStates.put(machine, machine.toString());
                         stateQueue.add(machine);
                         finalState = false;
@@ -226,11 +227,9 @@ public class NFA implements NFAInterface {
                                 finalState = true;
                         }
                         if (finalState) {
-                            dfa.addFinalState(DFAStates.get(machine));
                             System.out.println(DFAStates);
                         }
                         if (!finalState) {
-                            System.out.println(DFAStates);
                             dfa.addState(DFAStates.get(machine));
                         }
                     }
