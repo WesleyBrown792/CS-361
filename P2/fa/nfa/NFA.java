@@ -227,10 +227,10 @@ public class NFA implements NFAInterface {
                         }
                         if (finalState) {
                             dfa.addFinalState(DFAStates.get(machine));
-                            System.out.println(DFAStates.getName());
+                            System.out.println(DFAStates);
                         }
                         if (!finalState) {
-                            System.out.println(DFAStates.getName());
+                            System.out.println(DFAStates);
                             dfa.addState(DFAStates.get(machine));
                         }
                     }
