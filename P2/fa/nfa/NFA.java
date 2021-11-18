@@ -106,6 +106,7 @@ public class NFA implements NFAInterface {
     public void addTransition(String fromState, char onSymb, String toState) throws NullPointerException {
         NFAState to = null;
         NFAState from = null;
+        System.out.println("from = "+fromState+" to = "+toState);
         for (NFAState state : stateTracker) {
             if (state.getName().equals(fromState))
                 from = state;
@@ -115,6 +116,11 @@ public class NFA implements NFAInterface {
             if (state.getName().equals(toState))
                 to = state;
             break;
+        }
+
+        if(to == null||from == null){
+            System.out.println("to or from is still null");
+            System.exit(2);
         }
         
 
