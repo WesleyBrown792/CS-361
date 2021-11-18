@@ -206,11 +206,12 @@ public class NFA implements NFAInterface {
                 i++;
             }else{
                 newStates = stateQueue.remove();
-                System.out.println(newStates.getName());
+                
                 //checks each state with each letter of the language alphabet
                 for (char currChar : alphabetTracker) {
                     LinkedHashSet<NFAState> machine = new LinkedHashSet<>();
                     for (NFAState currState : newStates) {
+                        System.out.println(currState.getName());
                         if (currState.getTo(currChar) != null) {
                             for (NFAState Estate : currState.getTo(currChar)) {
                                 machine.addAll(eClosure(Estate));
