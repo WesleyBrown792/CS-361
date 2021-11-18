@@ -108,15 +108,16 @@ public class NFA implements NFAInterface {
         NFAState from = null;
         if (doesContainState(fromState) && doesContainState(toState)) {
             for (NFAState state : stateTracker) {
-                if (state.getName().equals(toState))
-                    to = state;
-                break;
-            }
-            for (NFAState state : stateTracker) {
                 if (state.getName().equals(fromState))
                     from = state;
                 break;
             }
+            for (NFAState state : stateTracker) {
+                if (state.getName().equals(toState))
+                    to = state;
+                break;
+            }
+            
 
             from.addTransition(onSymb, to);
 
