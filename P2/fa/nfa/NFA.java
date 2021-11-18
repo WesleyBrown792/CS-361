@@ -109,15 +109,18 @@ public class NFA implements NFAInterface {
         System.out.println("from = "+fromState+" to = "+toState);
         for (NFAState state : stateTracker) {
             System.out.println("Current state from"+state.getName());
-            if (state.getName().equals(fromState))
+            if (state.getName().equals(fromState)){
                 from = state;
-            break;
+                break;
+            }
         }
         for (NFAState state : stateTracker) {
             System.out.println("Current state to"+state.getName());
-            if (state.getName().equals(toState))
+            if (state.getName().equals(toState)){
                 to = state;
-            break;
+                break;
+            }
+                
         }
 
         if(to == null||from == null){
