@@ -218,7 +218,7 @@ public class NFA implements NFAInterface {
                         }
                     }
                     while (!DFAStates.containsKey(machine)) {
-                        System.out.println(machine.getName());
+                        System.out.println(machine.toString());
                         DFAStates.put(machine, machine.toString());
                         stateQueue.add(machine);
                         finalState = false;
