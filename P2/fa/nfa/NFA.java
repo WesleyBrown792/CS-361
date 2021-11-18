@@ -106,27 +106,23 @@ public class NFA implements NFAInterface {
     public void addTransition(String fromState, char onSymb, String toState) throws NullPointerException {
         NFAState to = null;
         NFAState from = null;
-        if (doesContainState(fromState) && doesContainState(toState)) {
-            for (NFAState state : stateTracker) {
-                if (state.getName().equals(fromState))
-                    from = state;
-                break;
-            }
-            for (NFAState state : stateTracker) {
-                if (state.getName().equals(toState))
-                    to = state;
-                break;
-            }
-            
-
-            from.addTransition(onSymb, to);
-
-            if (!alphabetTracker.contains(onSymb) && onSymb != 'e') {
-                alphabetTracker.add(onSymb);
-            }
-
+        for (NFAState state : stateTracker) {
+            if (state.getName().equals(fromState))
+                from = state;
+            break;
         }
+        for (NFAState state : stateTracker) {
+            if (state.getName().equals(toState))
+                to = state;
+            break;
+        }
+        
 
+        from.addTransition(onSymb, to);
+
+        if (!alphabetTracker.contains(onSymb) && onSymb != 'e') {
+            alphabetTracker.add(onSymb);
+        }
     }
 
     /**
