@@ -119,8 +119,7 @@ public class NFA implements NFAInterface {
         }
 
         if(to == null||from == null){
-            if(from == null)
-                System.out.println("from is null");
+            System.out.println(stateTracker.size());
             System.out.println("to or from is still null");
             System.exit(2);
         }
