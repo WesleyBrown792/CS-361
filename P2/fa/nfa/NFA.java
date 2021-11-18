@@ -189,7 +189,6 @@ public class NFA implements NFAInterface {
 		// Checks if there is a final state in the newStates
 		boolean finalState = false;
 		for (NFAState currState : newStates) {
-            System.out.println("currState"+currState.getName());
 			if (currState.getFinalState())
 				finalState = true;
 		}
@@ -207,6 +206,7 @@ public class NFA implements NFAInterface {
                 i++;
             }else{
                 newStates = stateQueue.remove();
+                System.out.println(newStates.getName());
                 //checks each state with each letter of the language alphabet
                 for (char currChar : alphabetTracker) {
                     LinkedHashSet<NFAState> machine = new LinkedHashSet<>();
