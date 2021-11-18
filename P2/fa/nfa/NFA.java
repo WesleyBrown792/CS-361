@@ -145,7 +145,7 @@ public class NFA implements NFAInterface {
     public Set<NFAState> getFinalStates() {
         Set<NFAState> finalStates = new LinkedHashSet<NFAState>();
 		for (NFAState state : finalStates) {
-			if (state.isFinal()) {
+			if (state.getFinalState()) {
 				finalStates.add(state);
 			}
 		}
