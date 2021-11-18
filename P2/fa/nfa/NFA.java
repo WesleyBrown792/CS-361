@@ -83,8 +83,7 @@ public class NFA implements NFAInterface {
     @Override
     public void addFinalState(String name) {
         if (!doesContainState(name)) {
-            NFAState state = new NFAState(name);
-            state.setFinalState(true);
+            NFAState state = new NFAState(name, true);
             stateTracker.add(state);
             finalStateTracker.add(state);
         } else {
