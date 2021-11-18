@@ -20,7 +20,6 @@ import fa.dfa.DFA;
 public class NFA implements NFAInterface {
     private NFAState startState;
     private Set<NFAState> stateTracker;
-    private Set<NFAState> finalStateTracker;
     private Set<Character> alphabetTracker;
 
     public NFA() {
@@ -85,12 +84,10 @@ public class NFA implements NFAInterface {
         if (!doesContainState(name)) {
             NFAState state = new NFAState(name, true);
             stateTracker.add(state);
-            finalStateTracker.add(state);
         } else {
             for (NFAState state : stateTracker) {
-                if (state.getName().equals(name)) {
+                if (state.getName().equals(name) && state == getStartState()) {
                     state.setFinalState(true);
-                    finalStateTracker.add(state);
                     break;
                 }
             }
@@ -146,7 +143,13 @@ public class NFA implements NFAInterface {
      */
     @Override
     public Set<NFAState> getFinalStates() {
-        return finalStateTracker;
+        Set<NFAState> finalStates = new LinkedHashSet<NFAState>();
+		for (NFAState state : finalStates) {
+			if (state.isFinal()) {
+				finalStates.add(state);
+			}
+		}
+		return finalStates;
     }
 
     /**
