@@ -218,7 +218,6 @@ public class NFA implements NFAInterface {
                         }
                     }
                     while (!DFAStates.containsKey(machine)) {
-                        System.out.println(machine.toString());
                         DFAStates.put(machine, machine.toString());
                         stateQueue.add(machine);
                         finalState = false;
@@ -226,12 +225,10 @@ public class NFA implements NFAInterface {
                             if (check.getFinalState())
                                 finalState = true;
                         }
-                        if (finalState) {
-                            System.out.println(DFAStates);
-                        }
-                        if (!finalState) {
+                        if (finalState) 
+                            dfa.addFinalState(DFAStates.get(machine));
+                        if (!finalState) 
                             dfa.addState(DFAStates.get(machine));
-                        }
                     }
                     dfa.addTransition(newStates.toString(), currChar, DFAStates.get(machine));
                 }
@@ -264,6 +261,9 @@ public class NFA implements NFAInterface {
         Set<NFAState> seenStates = new LinkedHashSet<NFAState>();
 
         eClosureWalk(s,seenStates);
+        for(NFAState state : seenStates){
+            System.out.println(state.getName());
+        }
         return seenStates;
     }
 
